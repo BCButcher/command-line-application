@@ -26,18 +26,9 @@ const colors = {
 };
 
 function generateHTML(data) {
-  console.log (data.login)
-  console.log (data.location)
-  console.log (data.blog)
-  console.log (data.bio)
-  console.log (data.repos_url)
-  console.log (data.public_repos)
-  console.log (data.followers)
-  console.log (data.starred_url)
-  console.log (data.following)
   return `<!DOCTYPE html>
   <html lang="en">
-    <head>
+     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -47,9 +38,10 @@ function generateHTML(data) {
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <script src="generateHTML.js"></script>
       <title>Document</title>
-      <style>
+    </head>
+    <style>
       @page {
-        margin: 0=;
+        margin: 0;
       }
           
       *, *::after, *::before {
@@ -63,7 +55,6 @@ function generateHTML(data) {
       }
 
       .wrapper {
-        box-shadow: grey 4px 1px 20px 4px;
         padding-top: 100px;
         background-color: ${colors[data.color].wrapperBackground};
       }
@@ -74,6 +65,7 @@ function generateHTML(data) {
       }
 
       main {
+        margin-top: 15px;
         background-color: #E9EDEE;
         height: auto;
         padding-top: 30px;
@@ -122,7 +114,7 @@ function generateHTML(data) {
       }
 
       .photo-header img {
-        box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
+        box-shadow: rgba(0, 0, 0, 0.3) 10px 12px 10px 0px;
         width: 250px;
         height: 250px;
         border-radius: 50%;
@@ -164,7 +156,7 @@ function generateHTML(data) {
         padding: 50px;
         padding-left: 100px;
         padding-right: 100px;
-        box-shadow: grey 5px 6px 5px 0px;
+        box-shadow: black 10px 12px 10px 0px;
       }
 
       .row {
@@ -178,7 +170,7 @@ function generateHTML(data) {
       }
 
       .card {
-        box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
+        box-shadow: black 10px 12px 10px 0px;
         margin: 20px;
         padding: 20px;
         border-radius: 6px;
@@ -202,49 +194,49 @@ function generateHTML(data) {
           zoom: .75; 
         } 
       }
-      </style>
+    </style>
     </head>
     <body>
-      <div class="wrapper">
-        <section class="photo-header">
-          <p style="text-align: center">
-            <img src="${data.avatar_url}">
-          </p>
-          <h1 style="font-family: 'Permanent Marker', cursive;">Hey</h1>
-          <h1 style="font-family: 'Permanent Marker'">My name is Brian Butcher</h2>
-          <h4 style="font-family: 'Kalam'">Currently a ${data.company}</h4>
-          <h3 class="links-nav">
-            <a href="https://www.google.com/maps/place/${data.location}" class="fas fa-map-marker-alt nav-link"> ${data.location}</a>
-            <a href="${data.html_url}" class="fab fa=github nav-link"> GitHub</a>
-            <a href="${data.blog}" class="fas fa=rss nav-link"> Blog</a>
-          </h3>
-        </section>
-      </div>
-      <main>
-        <h3 class="container" style="text-align: center;"">${data.bio}</h3>
-        <section class="container">
-          <div class="row">
-            <div class="col card">
-              <h4 style="font-weight: bold">Public Repositories</h4>
-              <h4 style="font-weight: bold">${data.public_repos}</h4>
-            </div>
-            <div class="col card">
-              <h4 style="font-weight: bold">Followers</h4>
-              <h4 style="font-weight: bold">${data.followers}</h4>
-            </div>
+    <div class="wrapper">
+      <section class="photo-header">
+        <p style="text-align: center">
+          <img src="${data.avatar_url}">
+        </p>
+        <h1 style="font-family: 'Permanent Marker', cursive;">Hey!</h1>
+        <h1 style="font-family: 'Permanent Marker'">My name is Brian Butcher</h2>
+        <h4 style="font-family: 'Waiting for the Sunrise'">I'm currently a ${data.company}</h4>
+        <h3 class="links-nav">
+          <a href="https://www.google.com/maps/place/${data.location}" class="fas fa-map-marker-alt nav-link" style="font-family: 'kalam'"> ${data.location}</a>
+          <a href="${data.html_url}" class="fab fa=github nav-link" style="font-family: 'kalam'"> GitHub</a>
+          <a href="${data.blog}" class="fas fa=rss nav-link" style="font-family: 'kalam'"> Blog</a>
+        </h3>
+      </section>
+    </div>
+    <main style="background-image: url(assets/images/codecode.jpg); background-size: 500px 500px;">
+      <h3 class="container" style="text-align: center; font-family: 'kalam'; background-color: white">${data.bio}</h3>
+      <section class="container" style="background-color: white">
+        <div class="row">
+          <div class="col card">
+            <h4 style="font-weight: bold; font-family: 'kalam'">Public Repositories</h4>
+            <h4 style="font-weight: bold">${data.public_repos}</h4>
           </div>
-          <div class="row">
-            <div class="col card">
-              <h4 style="font-weight: bold">Following</h4>
-              <h4 style="font-weight: bold">${data.following}</h4>
-            </div>
-            <div class="col card">
-              <h4 style="font-weight: bold">GitHub Stars</h4>
-              <h4 style="font-weight: bold">${data.starred}</h4>
-            </div>
+          <div class="col card">
+            <h4 style="font-weight: bold; font-family: 'kalam'">Followers</h4>
+            <h4 style="font-weight: bold">${data.followers}</h4>
           </div>
-        </section>
-      </main>
+        </div>
+        <div class="row">
+          <div class="col card">
+            <h4 style="font-weight: bold; font-family: 'kalam'">Following</h4>
+            <h4 style="font-weight: bold">${data.following}</h4>
+          </div>
+          <div class="col card">
+            <h4 style="font-weight: bold; font-family: 'kalam'">GitHub Stars</h4>
+            <h4 style="font-weight: bold">${data.starred}</h4>
+          </div>
+        </div>
+      </section>
+    </main>
   
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
